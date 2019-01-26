@@ -1,0 +1,23 @@
+//
+// This file is to be applied to every subproject.
+//
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'pmd'
+apply plugin: 'maven-publish'
+
+jacoco {
+    toolVersion = "0.8.1"
+    reportsDir = file("$buildDir/reports/jacoco")
+}
+
+pmd {
+    ignoreFailures = true
+}
+version = '1.0.0.0'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
